@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <title>GitHub user search app</title>
+</head>
+<body>
+  <div class="main_container">
+    <div class="finder_outer">
+      <h3 class="dark">devfinder</h3>
+      <div class="mode_box flex">
+        <p class="mode_name">DARK</p>
+        <img class="mode_img lightmode" id="mode-indicator" src="./assets/icon-moon.svg">
+      </div>
+    </div>
+    <form type="submit">
+      <div class="search_area flex">
+        <img src="./assets/icon-search.svg">
+        <input id="search-name" class="search_name" type="text" placeholder="Search Github username..." >
+        <button type="submit" class="search_button" id="search">Search</button>
+      </div>
+    </form>
+    <div class="user_info_outer">
+      <div class="desktop_user_image">
+        <img class="desktop_img" src="">
+      </div>
+      <div class="user_box">
+        <div class="mobile_user_image">
+          <img class="mobile_img" src="https://avatars.githubusercontent.com/u/1330491?v=4">
+        </div>
+        <div class="registration_info">
+          <div class="usernames">
+            <h2 class="the_username dark">The Octocat</h2>
+            <p class="username">@octocat</p>
+          </div>
+          <p class="registration_date">Joined 25 Jan 2011</p>
+        </div>
+      </div>
+      <p class="user_bio">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+        Donec odio. Quisque volutpat mattis eros.
+      </p>
+      <div class="rep_followers">
+        <div class="followers">
+          <h5 class="follower_head">Repos</h5>
+          <p id='repositories' class="follower_info dark">8</p>
+        </div>
+        <div class="followers">
+          <h5 class="follower_head">Followers</h5>
+          <p id='follower-quantity' class="follower_info dark">1000</p>
+        </div>
+        <div class="followers">
+          <h5 class="follower_head">Following</h5>
+          <p id='following' class="follower_info dark">9</p>
+        </div>
+      </div>
+      <div class="wokrplace_details">
+        <div class="area1">
+          <div class="section1">
+            <img class="bottom_icons loc-icon" src="./assets/icon-location.svg">
+            <p class="bottom_text">San Francisco</p>
+          </div>
+          <div class="section1">
+            <img class="bottom_icons blog-icon" src="./assets/icon-website.svg">
+            <a class="bottom_text links">https://github.blog</a>
+          </div>
+        </div>
+        <div class="area2">
+          <div class="section1">
+            <img class="bottom_icons twitter-icon" src="./assets/icon-twitter.svg">
+            <p class="bottom_text">Not Avialable</p>
+          </div>
+          <div class="section1">
+            <img class="bottom_icons company-icon" src="./assets/icon-company.svg">
+            <p class="bottom_text">@github</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<script src="./index.js"></script>
+</body>
+</html>
