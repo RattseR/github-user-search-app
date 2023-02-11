@@ -167,7 +167,6 @@ function changeThemeToDark (){
     (<HTMLElement>document.querySelector('.user_info_outer')).style.backgroundColor = '#1E2A47';
     (<HTMLElement>document.querySelector('.rep_followers')).style.backgroundColor = '#141D2F';
     (<HTMLElement>document.querySelector('.search_name')).style.color = '#FFFFFF';
-    (<HTMLElement>document.querySelector('.search_name')).style.caretColor = '#0079FF';
     (<HTMLElement>document.querySelector('.links')).style.color = '#FFFFFF';
     (<HTMLElement>document.querySelector('.mode_name')).classList.add('darkmode');
     (<HTMLElement>document.querySelector('.mode_name')).classList.remove('lightmode');
@@ -200,12 +199,14 @@ function changeThemeToLight(){
     (<HTMLElement>document.querySelector('.user_info_outer')).style.backgroundColor = '#FEFEFE';
     (<HTMLElement>document.querySelector('.rep_followers')).style.backgroundColor = '#F6F8FF';
     (<HTMLElement>document.querySelector('.search_name')).style.color = '#222731';
-    (<HTMLElement>document.querySelector('.search_name')).style.caretColor = '#0079FF';
     (<HTMLElement>document.querySelector('.links')).style.color = '#4B6A9B';
     (<HTMLElement>document.querySelector('.mode_name')).classList.add('lightmode');
     (<HTMLElement>document.querySelector('.mode_name')).classList.remove('darkmode');
     (<HTMLElement>document.querySelector('#mode-indicator')).classList.add('lightmode');
     (<HTMLElement>document.querySelector('#mode-indicator')).classList.remove('darkmode');
+
+    
+
     let array = document.querySelectorAll('.light');
     for (let element of array) {
       element.classList.remove('light');

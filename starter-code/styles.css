@@ -157,7 +157,7 @@
     font-weight: 700;
     font-size: 15px;
     line-height: 22px;
-    color: #F74646;
+    color: #F74646!important;
     text-align: right;
   }
   .rep_followers {
@@ -243,7 +243,7 @@
   }
   .main_container {
     width: 90%;
-    max-width: 600px;
+    max-width: 900px;
   }
  .area1{
   display: flex;

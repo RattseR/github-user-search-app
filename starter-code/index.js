@@ -151,7 +151,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         document.querySelector('.user_info_outer').style.backgroundColor = '#1E2A47';
         document.querySelector('.rep_followers').style.backgroundColor = '#141D2F';
         document.querySelector('.search_name').style.color = '#FFFFFF';
-        document.querySelector('.search_name').style.caretColor = '#0079FF';
         document.querySelector('.links').style.color = '#FFFFFF';
         document.querySelector('.mode_name').classList.add('darkmode');
         document.querySelector('.mode_name').classList.remove('lightmode');
@@ -183,12 +182,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         document.querySelector('.user_info_outer').style.backgroundColor = '#FEFEFE';
         document.querySelector('.rep_followers').style.backgroundColor = '#F6F8FF';
         document.querySelector('.search_name').style.color = '#222731';
-        document.querySelector('.search_name').style.caretColor = '#0079FF';
         document.querySelector('.links').style.color = '#4B6A9B';
         document.querySelector('.mode_name').classList.add('lightmode');
         document.querySelector('.mode_name').classList.remove('darkmode');
         document.querySelector('#mode-indicator').classList.add('lightmode');
         document.querySelector('#mode-indicator').classList.remove('darkmode');
+        if (document.querySelector('.search_name').value == 'No Result') {
+            document.querySelector('.search_name').classList.add('errormessage');
+        }
         var array = document.querySelectorAll('.light');
         for (var _i = 0, array_2 = array; _i < array_2.length; _i++) {
             var element = array_2[_i];
