@@ -192,7 +192,7 @@ function changeThemeToLight(){
     (<HTMLImageElement>document.getElementById('mode-indicator')).src= "./assets/icon-moon.svg";
     
     (<HTMLParagraphElement>document.querySelector('.mode_name')).innerHTML = 'DARK';
-    (<HTMLElement>document.querySelector('body')).style.backgroundColor = '#F2F2F2';
+    (<HTMLElement>document.querySelector('body')).style.backgroundColor = '#F6F8FF';
     (<HTMLElement>document.querySelector('body')).style.color = '#4B6A9B';
     (<HTMLElement>document.querySelector('.main_container')).style.backgroundColor = '#F6F8FF';
     (<HTMLElement>document.querySelector('.search_area')).style.backgroundColor = '#FEFEFE';

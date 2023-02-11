@@ -175,7 +175,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         //if((<HTMLImageElement>document.getElementById('mode-indicator')).classList.contains('darkmode')){
         document.getElementById('mode-indicator').src = "./assets/icon-moon.svg";
         document.querySelector('.mode_name').innerHTML = 'DARK';
-        document.querySelector('body').style.backgroundColor = '#F2F2F2';
+        document.querySelector('body').style.backgroundColor = '#F6F8FF';
         document.querySelector('body').style.color = '#4B6A9B';
         document.querySelector('.main_container').style.backgroundColor = '#F6F8FF';
         document.querySelector('.search_area').style.backgroundColor = '#FEFEFE';
