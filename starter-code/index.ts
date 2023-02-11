@@ -36,7 +36,6 @@
             let blog:string = 'Not Avialable';
             let twitter:string="";
             let bio:string="User Bio Is Not Avialable";
-            console.log(date);
             let datemonth:string=(<string>months[date.getMonth()]);
             let dateday: number = date.getDay();
             let dateyear:number = date.getFullYear();
@@ -126,7 +125,12 @@
             maincontainer.appendChild(user_outer);
 
             
-            
+            if ((<HTMLElement>document.getElementById('mode-indicator')).classList.contains('lightmode')){
+              changeThemeToLight();
+            }
+            if ((<HTMLElement>document.getElementById('mode-indicator')).classList.contains('darkmode')){
+              changeThemeToDark();
+            }
 
         })
         .catch((error)=>{console.log(error)});
@@ -150,9 +154,8 @@
   }
 })
 
-function changeTheme (event){
-  if((<HTMLImageElement>document.getElementById('mode-indicator')).classList.contains('lightmode')){
-    console.log((<HTMLImageElement>document.getElementById('mode-indicator')).getAttribute('src'));
+function changeThemeToDark (){
+  //if((<HTMLImageElement>document.getElementById('mode-indicator')).classList.contains('lightmode')){
     (<HTMLImageElement>document.getElementById('mode-indicator')).src= "./assets/icon-sun.svg";
     
     (<HTMLParagraphElement>document.querySelector('.mode_name')).innerHTML = 'LIGHT';
@@ -166,12 +169,61 @@ function changeTheme (event){
     (<HTMLElement>document.querySelector('.search_name')).style.color = '#FFFFFF';
     (<HTMLElement>document.querySelector('.search_name')).style.caretColor = '#0079FF';
     (<HTMLElement>document.querySelector('.links')).style.color = '#FFFFFF';
+    (<HTMLElement>document.querySelector('.mode_name')).classList.add('darkmode');
+    (<HTMLElement>document.querySelector('.mode_name')).classList.remove('lightmode');
+    (<HTMLElement>document.querySelector('#mode-indicator')).classList.add('darkmode');
+    (<HTMLElement>document.querySelector('#mode-indicator')).classList.remove('lightmode');
     let array = document.querySelectorAll('.dark');
     for (let element of array) {
       element.classList.remove('dark');
       element.classList.add('light');
     }
-  }
+
+    let lightarr = document.querySelectorAll('.darkmode');
+    for(let elem of lightarr) {
+        elem.removeEventListener('click',changeThemeToDark)
+        elem.addEventListener('click',changeThemeToLight);
+    }
+  //}
 }
-document.getElementById('mode-indicator')?.addEventListener('click',changeTheme);
+
+function changeThemeToLight(){
+  //if((<HTMLImageElement>document.getElementById('mode-indicator')).classList.contains('darkmode')){
+    (<HTMLImageElement>document.getElementById('mode-indicator')).src= "./assets/icon-moon.svg";
+    
+    (<HTMLParagraphElement>document.querySelector('.mode_name')).innerHTML = 'DARK';
+    (<HTMLElement>document.querySelector('body')).style.backgroundColor = '#F2F2F2';
+    (<HTMLElement>document.querySelector('body')).style.color = '#4B6A9B';
+    (<HTMLElement>document.querySelector('.main_container')).style.backgroundColor = '#F6F8FF';
+    (<HTMLElement>document.querySelector('.search_area')).style.backgroundColor = '#FEFEFE';
+    (<HTMLElement>document.querySelector('.search_name')).style.backgroundColor = '#FEFEFE';
+    (<HTMLElement>document.querySelector('.user_info_outer')).style.backgroundColor = '#FEFEFE';
+    (<HTMLElement>document.querySelector('.rep_followers')).style.backgroundColor = '#F6F8FF';
+    (<HTMLElement>document.querySelector('.search_name')).style.color = '#222731';
+    (<HTMLElement>document.querySelector('.search_name')).style.caretColor = '#0079FF';
+    (<HTMLElement>document.querySelector('.links')).style.color = '#4B6A9B';
+    (<HTMLElement>document.querySelector('.mode_name')).classList.add('lightmode');
+    (<HTMLElement>document.querySelector('.mode_name')).classList.remove('darkmode');
+    (<HTMLElement>document.querySelector('#mode-indicator')).classList.add('lightmode');
+    (<HTMLElement>document.querySelector('#mode-indicator')).classList.remove('darkmode');
+    let array = document.querySelectorAll('.light');
+    for (let element of array) {
+      element.classList.remove('light');
+      element.classList.add('dark');
+    }
+
+    let lightarr = document.querySelectorAll('.lightmode');
+    for(let elem of lightarr) {
+        elem.removeEventListener('click',changeThemeToLight)
+        elem.addEventListener('click',changeThemeToDark);
+        
+    }
+  //}
+}
+const modearr = document.querySelectorAll('.lightmode');
+for (let el of modearr) {
+  el.addEventListener('click',changeThemeToDark);
+}
+
+// document.getElementById('mode-indicator')?.addEventListener('click',changeThemeToDark);
 }

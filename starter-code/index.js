@@ -34,7 +34,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _a;
 {
     function createUserCard(event) {
         return __awaiter(this, void 0, void 0, function () {
@@ -81,7 +80,6 @@ var _a;
                                     var blog = 'Not Avialable';
                                     var twitter = "";
                                     var bio = "User Bio Is Not Avialable";
-                                    console.log(date);
                                     var datemonth = months[date.getMonth()];
                                     var dateday = date.getDay();
                                     var dateyear = date.getFullYear();
@@ -115,6 +113,12 @@ var _a;
                                     var maincontainer = document.querySelector('.main_container');
                                     user_outer.innerHTML = cardhtml;
                                     maincontainer.appendChild(user_outer);
+                                    if (document.getElementById('mode-indicator').classList.contains('lightmode')) {
+                                        changeThemeToLight();
+                                    }
+                                    if (document.getElementById('mode-indicator').classList.contains('darkmode')) {
+                                        changeThemeToDark();
+                                    }
                                 })["catch"](function (error) { console.log(error); });
                             });
                         }
@@ -135,28 +139,74 @@ var _a;
             e.target.classList.remove('errormessage');
         }
     });
-    function changeTheme(event) {
-        if (document.getElementById('mode-indicator').classList.contains('lightmode')) {
-            console.log(document.getElementById('mode-indicator').getAttribute('src'));
-            document.getElementById('mode-indicator').src = "./assets/icon-sun.svg";
-            document.querySelector('.mode_name').innerHTML = 'LIGHT';
-            document.querySelector('body').style.backgroundColor = '#141D2F';
-            document.querySelector('body').style.color = '#FFFFFF';
-            document.querySelector('.main_container').style.backgroundColor = '#141D2F';
-            document.querySelector('.search_area').style.backgroundColor = '#1E2A47';
-            document.querySelector('.search_name').style.backgroundColor = '#1E2A47';
-            document.querySelector('.user_info_outer').style.backgroundColor = '#1E2A47';
-            document.querySelector('.rep_followers').style.backgroundColor = '#141D2F';
-            document.querySelector('.search_name').style.color = '#FFFFFF';
-            document.querySelector('.search_name').style.caretColor = '#0079FF';
-            document.querySelector('.links').style.color = '#FFFFFF';
-            var array = document.querySelectorAll('.dark');
-            for (var _i = 0, array_1 = array; _i < array_1.length; _i++) {
-                var element = array_1[_i];
-                element.classList.remove('dark');
-                element.classList.add('light');
-            }
+    function changeThemeToDark() {
+        //if((<HTMLImageElement>document.getElementById('mode-indicator')).classList.contains('lightmode')){
+        document.getElementById('mode-indicator').src = "./assets/icon-sun.svg";
+        document.querySelector('.mode_name').innerHTML = 'LIGHT';
+        document.querySelector('body').style.backgroundColor = '#141D2F';
+        document.querySelector('body').style.color = '#FFFFFF';
+        document.querySelector('.main_container').style.backgroundColor = '#141D2F';
+        document.querySelector('.search_area').style.backgroundColor = '#1E2A47';
+        document.querySelector('.search_name').style.backgroundColor = '#1E2A47';
+        document.querySelector('.user_info_outer').style.backgroundColor = '#1E2A47';
+        document.querySelector('.rep_followers').style.backgroundColor = '#141D2F';
+        document.querySelector('.search_name').style.color = '#FFFFFF';
+        document.querySelector('.search_name').style.caretColor = '#0079FF';
+        document.querySelector('.links').style.color = '#FFFFFF';
+        document.querySelector('.mode_name').classList.add('darkmode');
+        document.querySelector('.mode_name').classList.remove('lightmode');
+        document.querySelector('#mode-indicator').classList.add('darkmode');
+        document.querySelector('#mode-indicator').classList.remove('lightmode');
+        var array = document.querySelectorAll('.dark');
+        for (var _i = 0, array_1 = array; _i < array_1.length; _i++) {
+            var element = array_1[_i];
+            element.classList.remove('dark');
+            element.classList.add('light');
         }
+        var lightarr = document.querySelectorAll('.darkmode');
+        for (var _a = 0, lightarr_1 = lightarr; _a < lightarr_1.length; _a++) {
+            var elem = lightarr_1[_a];
+            elem.removeEventListener('click', changeThemeToDark);
+            elem.addEventListener('click', changeThemeToLight);
+        }
+        //}
     }
-    (_a = document.getElementById('mode-indicator')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', changeTheme);
+    function changeThemeToLight() {
+        //if((<HTMLImageElement>document.getElementById('mode-indicator')).classList.contains('darkmode')){
+        document.getElementById('mode-indicator').src = "./assets/icon-moon.svg";
+        document.querySelector('.mode_name').innerHTML = 'DARK';
+        document.querySelector('body').style.backgroundColor = '#F2F2F2';
+        document.querySelector('body').style.color = '#4B6A9B';
+        document.querySelector('.main_container').style.backgroundColor = '#F6F8FF';
+        document.querySelector('.search_area').style.backgroundColor = '#FEFEFE';
+        document.querySelector('.search_name').style.backgroundColor = '#FEFEFE';
+        document.querySelector('.user_info_outer').style.backgroundColor = '#FEFEFE';
+        document.querySelector('.rep_followers').style.backgroundColor = '#F6F8FF';
+        document.querySelector('.search_name').style.color = '#222731';
+        document.querySelector('.search_name').style.caretColor = '#0079FF';
+        document.querySelector('.links').style.color = '#4B6A9B';
+        document.querySelector('.mode_name').classList.add('lightmode');
+        document.querySelector('.mode_name').classList.remove('darkmode');
+        document.querySelector('#mode-indicator').classList.add('lightmode');
+        document.querySelector('#mode-indicator').classList.remove('darkmode');
+        var array = document.querySelectorAll('.light');
+        for (var _i = 0, array_2 = array; _i < array_2.length; _i++) {
+            var element = array_2[_i];
+            element.classList.remove('light');
+            element.classList.add('dark');
+        }
+        var lightarr = document.querySelectorAll('.lightmode');
+        for (var _a = 0, lightarr_2 = lightarr; _a < lightarr_2.length; _a++) {
+            var elem = lightarr_2[_a];
+            elem.removeEventListener('click', changeThemeToLight);
+            elem.addEventListener('click', changeThemeToDark);
+        }
+        //}
+    }
+    var modearr = document.querySelectorAll('.lightmode');
+    for (var _i = 0, modearr_1 = modearr; _i < modearr_1.length; _i++) {
+        var el = modearr_1[_i];
+        el.addEventListener('click', changeThemeToDark);
+    }
+    // document.getElementById('mode-indicator')?.addEventListener('click',changeThemeToDark);
 }

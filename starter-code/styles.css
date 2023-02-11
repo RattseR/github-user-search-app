@@ -99,6 +99,8 @@
     line-height: 25px;
     padding: 10px;
     outline-style: none;
+    caret-color: #0079FF;
+    
   } 
   
   
@@ -208,3 +210,15 @@
     color:#FFFFFF;
     font-weight: 700;
   }
+  .lightmode{
+    
+    color: rgb(75, 106, 155);
+  }
+.lightmode:hover {
+  color: #222731;
+  filter: brightness(0) saturate(100%) invert(10%) sepia(16%) saturate(1005%) hue-rotate(181deg) brightness(98%) contrast(87%);
+}
+.darkmode:hover {
+  color: #90A4D4;
+  filter: brightness(0) saturate(100%) invert(66%) sepia(33%) saturate(376%) hue-rotate(184deg) brightness(94%) contrast(87%);
+}
